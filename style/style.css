@@ -124,6 +124,7 @@ footer {
   padding: 0;
   align-items: center;
   font-size: 0.9rem;
+  grid-column: 1 / -1;
 }
 .breadcrumbs li {
   list-style: none;
@@ -167,8 +168,15 @@ footer {
 .product main {
   width: 100%;
   display: grid;
-  padding: 1rem;
   grid-template-columns: 1fr;
+}
+.productList > main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+}
+main {
+  padding: 1rem;
 }
 
 /* purchase box */
@@ -272,6 +280,115 @@ dl dd {
 .brandInfo p {
   font-size: 1.2rem;
 }
+
+/* product list */
+
+.productList article {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.productCard h3 {
+  font-size: 1.5rem;
+  margin: 0.3rem 0;
+}
+
+.subtitle {
+  flex-grow: 3;
+}
+
+.productCard p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.productCard a {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  background-color: var(--main-color);
+  margin: 1rem 0;
+  color: var(--bg-color);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  border: solid 2px var(--main-color);
+  transition: 0.3s ease-in-out;
+}
+
+.productCard a:hover {
+  background-color: var(--bg-color);
+  color: var(--main-color);
+}
+
+.discount {
+  display: none;
+  visibility: hidden;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.discount p {
+  width: fit-content;
+  display: block;
+  margin-bottom: 0;
+}
+.discount p:last-of-type {
+  background-color: rgba(228, 6, 54, 1);
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--bg-color);
+  border-radius: 0.2rem;
+}
+
+.onSale .discount ~ p {
+  color: var(--sub-color);
+  text-decoration: solid line-through 2px rgba(228, 6, 54, 1);
+}
+
+.onSale .discount {
+  visibility: visible;
+  display: flex;
+}
+
+.saleLabel {
+  display: none;
+  visibility: hidden;
+}
+
+.onSale .saleLabel {
+  background-color: rgba(228, 6, 54, 1);
+  display: block;
+  visibility: visible;
+  color: var(--bg-color);
+  position: absolute;
+  padding: 0.3rem 2rem;
+  top: 0rem;
+  right: -2rem;
+  transform: rotate(45deg);
+  letter-spacing: 0.1rem;
+}
+
+.productList article.soldOut:after {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  content: "SOLD OUT";
+  background: var(--main-color);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  color: var(--bg-color);
+}
+
+.soldOut img {
+  opacity: 0.5;
+  filter: saturate(0);
+}
+
 @media screen and (min-width: 800px) {
   .breadcrumbs {
     font-size: 1.1rem;
@@ -284,11 +401,9 @@ dl dd {
 @media screen and (min-width: 1000px) {
   .product main {
     grid-template-columns: 1fr 1fr;
-    padding: 2rem 4rem;
   }
-
-  .breadcrumbs {
-    grid-column: span 2;
+  main {
+    padding: 2rem 4rem;
   }
   .productDesc {
     grid-column: span 2;
