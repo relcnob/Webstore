@@ -53,7 +53,7 @@ function showProduct(item) {
   if (item.discount) {
     copy.querySelector("article").classList.add("onSale");
     copy.querySelector(".discount p").textContent =
-      "DKK " + (item.discount / 100) * item.price;
+      "DKK " + Math.ceil((item.discount / 100) * item.price) + ",-";
     copy.querySelector(
       ".discount p:nth-of-type(2)"
     ).textContent = `- ${item.discount} %`;
