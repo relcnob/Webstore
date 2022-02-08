@@ -1,4 +1,7 @@
-const url = "https://kea-alt-del.dk/t7/api/products";
+const urlParams = new URLSearchParams(window.location.search);
+const brand = urlParams.get("brandname");
+
+const url = "https://kea-alt-del.dk/t7/api/products?brandname=" + brand;
 
 fetch(url)
   .then(function (res) {
@@ -36,6 +39,8 @@ function showProduct(item) {
   //clone it
   const copy = template.cloneNode(true);
   //change content
+  //breadcrumbs
+  document.querySelector(".breadcrumbs li:last-of-type").textContent = brand;
 
   copy.querySelector(
     ".subtitle"
@@ -59,7 +64,7 @@ function showProduct(item) {
     ).textContent = `- ${item.discount} %`;
   }
   copy.querySelector(".price").textContent = item.price + ",-";
-
+  copy.querySelector("a").setAttribute("href", `product.html?id=${item.id}`);
   //grab parent
   const parent = document.querySelector("main");
   //append

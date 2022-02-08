@@ -125,6 +125,7 @@ footer {
   align-items: center;
   font-size: 0.9rem;
   grid-column: 1 / -1;
+  margin-bottom: 1rem;
 }
 .breadcrumbs li {
   list-style: none;
@@ -403,19 +404,19 @@ dl dd {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2rem 2.5rem;
+  padding: 2rem 1.5rem;
   transition: all 0.3s ease-in-out;
 }
 
 .category main article a span:first-child {
   position: relative;
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   margin: 0 0 0.2rem 0;
 }
 
 .category main article a span:first-child:after {
   position: absolute;
-  top: 0;
+  top: -10px;
   left: 0;
   content: "";
   display: block;
