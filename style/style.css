@@ -200,6 +200,10 @@ main {
   margin: 0;
 }
 
+.purchaseBox h1:last-of-type {
+  margin-top: 1.5rem;
+}
+
 .purchaseBox h2 {
   font-family: var(--main-font);
   color: var(--sub-color);
@@ -209,6 +213,18 @@ main {
 
 .purchaseBox h3 {
   font-size: 1.6rem;
+  margin: 0.2rem;
+}
+
+.discountPrice {
+  color: rgba(228, 6, 54, 1);
+}
+.hidePrice {
+  display: none;
+}
+.discountedPrice {
+  text-decoration: line-through;
+  color: var(--sub-color);
 }
 
 .purchaseBox p {
@@ -278,6 +294,7 @@ dl dd {
   padding: 0 0 0.5rem 1rem;
   border-bottom: 1px solid var(--sub-color);
 }
+
 /* brand info */
 
 .brandInfo h1 {
@@ -329,6 +346,18 @@ dl dd {
 .productCard a:hover {
   background-color: var(--bg-color);
   color: var(--main-color);
+}
+
+.soldOut a {
+  background-color: var(--sub-color);
+  color: var(--main-color);
+  border-color: var(--sub-color);
+}
+
+.soldOut a:hover {
+  background-color: var(--bg-color);
+  color: var(--sub-color);
+  border-color: var(--sub-color);
 }
 
 .discount {

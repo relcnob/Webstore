@@ -54,11 +54,14 @@ function showProduct(item) {
   ).textContent = `${item.productdisplayname}`;
   if (item.soldout) {
     copy.querySelector("article").classList.add("soldOut");
+    copy.querySelector("a").textContent = "SOLD OUT";
   }
   if (item.discount) {
     copy.querySelector("article").classList.add("onSale");
     copy.querySelector(".discount p").textContent =
-      "DKK " + Math.ceil((item.discount / 100) * item.price) + ",-";
+      "DKK " +
+      Math.ceil(item.price - (item.discount / 100) * item.price) +
+      ",-";
     copy.querySelector(
       ".discount p:nth-of-type(2)"
     ).textContent = `- ${item.discount} %`;

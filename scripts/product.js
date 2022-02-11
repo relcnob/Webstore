@@ -27,8 +27,21 @@ function showProduct(product) {
   document.querySelector(".purchaseBox h2").textContent =
     product.brandname + " | " + product.articletype;
 
+  document.querySelector(".purchaseBox .discountPrice").textContent =
+    "NEW PRICE: DKK " +
+    Math.ceil(product.price - (product.discount / 100) * product.price) +
+    ",-";
+
   document.querySelector(".purchaseBox h3").textContent =
     "DKK " + product.price + ",-";
+
+  if (product.discount == null) {
+    document
+      .querySelector(".purchaseBox .discountPrice")
+      .classList.add("hidePrice");
+  } else {
+    document.querySelector(".purchaseBox h3").classList.add("discountedPrice");
+  }
 
   if (product.styledesc == null) {
     document.querySelector(".purchaseBox span").innerHTML = "-";
