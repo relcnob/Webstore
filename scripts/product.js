@@ -49,6 +49,10 @@ function showProduct(product) {
     document.querySelector(".purchaseBox span").innerHTML = product.styledesc;
   }
 
+  if (product.soldout == 1) {
+    document.querySelector("button").innerText = "SOLD OUT";
+  }
+
   document.querySelector(".productDesc div dl dd:nth-of-type(1)").textContent =
     product.productdisplayname;
   document.querySelector(".productDesc div dl dd:nth-of-type(2)").textContent =
